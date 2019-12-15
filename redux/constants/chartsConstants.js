@@ -1,0 +1,7 @@
+export const chartsConstants = {
+  GET_CHARTS: 'GET_CHARTS',
+  ADD_CHART: 'ADD_CHART',
+  SAVE_CHARTS: 'SAVE_CHARTS',
+  DELETE_CHART: 'DELETE_CHART',
+  UPDATE_CHART: 'UPDATE_CHART',
+};

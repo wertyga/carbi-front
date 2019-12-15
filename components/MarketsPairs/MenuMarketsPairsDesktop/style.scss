@@ -1,0 +1,8 @@
+@import "constants.scss";
+
+.markets-pairs-wrapper-desktop {
+  display: flex;
+  @include desktop {
+    height: 100%;
+  }
+}

@@ -1,0 +1,1 @@
+export { UIIconsBase } from './UIIconsBase';

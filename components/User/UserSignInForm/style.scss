@@ -1,0 +1,39 @@
+@import "constants.scss";
+
+.user-signin-form {
+  max-width: 30rem;
+  margin: 0 auto;
+
+  .ui.form .field {
+    position: relative;
+  }
+
+  .icon.input .icon {
+    color: $color-light;
+    font-size: $font-size-l;
+    cursor: pointer;
+  }
+
+  .telegram-bot-link {
+    display: flex;
+    justify-content: flex-end;
+    padding: $space-4 0;
+    color: $color-light;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  &__description {
+    margin-top: $space-8;
+    font-weight: $font-weight-medium;
+    color: $color-light;
+  }
+
+  &__show-pass {
+    position: absolute;
+    right: $space-2;
+    bottom: $space-2;
+    cursor: pointer;
+    color: $color-light;
+  }
+}

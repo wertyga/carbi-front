@@ -1,0 +1,13 @@
+@import "constants.scss";
+
+.charts-list-desktop {
+  margin-left: $space-4;
+  .ui.menu {
+    margin-bottom: $space-2;
+    display: flex;
+    flex-wrap: wrap;
+    .item {
+      font-size: $font-size-s;
+    }
+  }
+}

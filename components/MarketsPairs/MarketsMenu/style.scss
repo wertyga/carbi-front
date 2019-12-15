@@ -1,0 +1,21 @@
+@import "constants.scss";
+
+.main-menu-markets {
+  padding-bottom: $space-6;
+  margin-right: $space-2;
+  max-height: 30rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  .header {
+    margin: 0;
+  }
+
+  &__header {
+    position: relative;
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: $color-dark;
+  }
+}

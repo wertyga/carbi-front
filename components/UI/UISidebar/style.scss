@@ -1,0 +1,19 @@
+@import "constants.scss";
+
+.ui-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: $color-light;
+  transition: transform .3s, opacity .3s;
+  transform: translateX(-100%);
+  opacity: 0;
+  //overflow-y: auto;
+  z-index: 2;
+
+  &.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

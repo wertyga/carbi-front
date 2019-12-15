@@ -1,0 +1,56 @@
+@import "constants.scss";
+
+@mixin light-input {
+  background-color: transparent;
+  color: $color-light;
+  border-color: $color-light;
+  &::placeholder {
+    color: rgba(255, 255, 255, .5);
+  }
+}
+
+.input.ui {
+  &.error {
+    input {
+      color: $color-red !important;
+      border-color: $color-red !important;
+      &::placeholder {
+        color: $color-red !important;
+      }
+    }
+  }
+}
+
+.ui {
+  &.input, &.checkbox {
+    input {
+      @include light-input;
+    }
+    label {
+      @include light-input;
+    }
+  }
+
+  &.form .field .ui.input {
+    input {
+      @include light-input;
+    }
+  }
+}
+
+.ui.form .field {
+  > label {
+    @include light-input;
+  }
+}
+
+.ui.loading.form:after {
+  border-color: $color-light rgba(255,255,255,.1) rgba(255,255,255,.1) rgba(255,255,255,.1);
+}
+
+.input-error {
+  color: $color-red;
+}
+.ui.input.error {
+  margin-bottom: $space-2;
+}

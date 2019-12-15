@@ -1,0 +1,15 @@
+@import "constants.scss";
+
+.user-signup-page {
+  .user-signup-form {
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+  h1 {
+    color: $color-light;
+    @include mobile {
+      display: none;
+    }
+  }
+
+}

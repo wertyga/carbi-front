@@ -1,0 +1,28 @@
+@import "constants.scss";
+
+// color-bg: #130901
+
+.page-layout {
+  position: relative;
+  min-height: 100vh;
+  padding: $space-8 $space-8 $space-10 $space-8;
+  background-image: url(/static/cryptocurrency_seamless_pattern.jpg);
+  //background-attachment: fixed;
+  //background-position: center;
+  //background-repeat: no-repeat;
+  //background-size: cover;
+  background-color: #1b1c1d;
+  @include mobile {
+    padding: $space-4;
+  }
+
+  h1 {
+    padding-left: $space-10;
+    margin-bottom: $space-8;
+    color: $color-light;
+    position: relative;
+    @include mobile {
+      padding: 0;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "constants.scss";
+
+.menu-user-signup {
+  display: flex;
+  i.icon.user {
+    color: $color-light !important;
+  }
+
+  a {
+    color: $color-light;
+    margin-right: $space-4;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,15 @@
+@import "constants.scss";
+
+.user-signup-form {
+  &__confirm-error {
+    label {
+      color: $color-red !important;
+    }
+  }
+
+  &.ui.loading.form:before {
+    background-color: transparent;
+  }
+
+  padding: 0 $space-6;
+}

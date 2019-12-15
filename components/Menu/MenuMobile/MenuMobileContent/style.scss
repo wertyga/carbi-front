@@ -1,0 +1,27 @@
+@import "constants.scss";
+
+.menu-mobile-content.ui.card {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transition: transform .3s;
+  transform-origin: 0 0;
+  transform: scale(0);
+  .menu-mobile-content__item {
+    font-weight: $font-weight-semibold;
+    color: $color-dark !important;
+    &:not(:last-child) {
+      margin-bottom: $space-4;
+    }
+  }
+
+  &.opened {
+    transform: scale(1);
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

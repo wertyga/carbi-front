@@ -1,0 +1,24 @@
+@import "constants.scss";
+
+.menu-mobile {
+  padding: $space-8 0;
+  display: flex;
+  @include mobile {
+    padding: $space-4 0;
+  }
+  &__header {
+    font-size: $font-size-m;
+    text-decoration: underline;
+    color: $color-light;
+  }
+
+  .butter-menu {
+    width: 100%;
+    position: relative;
+  }
+
+  &-content.ui.card {
+    margin: 0;
+    top: calc(100% + 1.5rem);
+  }
+}

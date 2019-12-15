@@ -1,0 +1,14 @@
+@import "constants.scss";
+
+.main-menu-item {
+  font-weight: $font-weight-semibold;
+
+  .ui.checkbox {
+    label {
+      //color: $color-dark;
+      @include mobile {
+        font-size: $font-size-s;
+      }
+    }
+  }
+}

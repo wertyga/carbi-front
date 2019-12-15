@@ -1,0 +1,16 @@
+@import "constants.scss";
+
+.ui-card {
+  padding: $space-4;
+
+  &__header {
+    padding: $space-4 0;
+    border-bottom: 1px solid $color-grey-3;
+  }
+  > *:not(:last-child) {
+    border-bottom: 1px solid $color-grey-3;
+  }
+  > * {
+    padding: $space-4 0;
+  }
+}

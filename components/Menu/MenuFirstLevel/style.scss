@@ -1,0 +1,11 @@
+@import "constants.scss";
+
+.menu-first-level {
+  z-index: 2;
+  a {
+    color: $color-light;
+    &:not(:last-child) {
+      margin-right: $space-4;
+    }
+  }
+}

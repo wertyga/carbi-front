@@ -1,0 +1,21 @@
+@import "constants.scss";
+
+.menu-user {
+  z-index: 2;
+  i.icon {
+    color: $color-light;
+    cursor: pointer;
+  }
+
+  &__item {
+    margin-right: $space-8;
+    @include mobile {
+      margin-right: $space-2;
+      white-space: nowrap;
+    }
+  }
+
+  .item {
+    display: flex;
+  }
+}

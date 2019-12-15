@@ -1,0 +1,1 @@
+export default ({ userStore, errorStore: { userStoreError } }) => ({ userStore, userStoreError });

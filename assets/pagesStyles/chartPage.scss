@@ -1,0 +1,26 @@
+@import "constants.scss";
+
+.chart-page {
+  &__show-new {
+    color: $color-light;
+    text-decoration: underline;
+    font-size: $font-size-m;
+    margin-bottom: $space-8;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  &__error {
+    color: $color-red;
+    display: flex;
+    justify-content: center;
+    font-size: $font-size-l;
+    margin-bottom: $space-8;
+  }
+
+  .loader {
+    background-color: $muar-white;
+  }
+}
