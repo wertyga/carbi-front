@@ -4,7 +4,7 @@ import { gfUser, gfCommon } from 'goldfish';
 import { clearUserError, submitUser } from 'redux/actions';
 
 import { Loader } from 'components/UI';
-import { Form, Input, Button, Icon, Message, Segment } from 'semantic-ui-react';
+import { Form, Input, Button, Icon, Message } from 'semantic-ui-react';
 import { BotLink } from 'components/Common/Telegram';
 
 import { useSelector, useDispatch } from 'react-redux';
@@ -57,8 +57,6 @@ export const UserSignInForm = () => {
 
       {loading && <Loader active />}
 
-      <Segment>
-
       <Form onSubmit={submit} error={!!userError}>
         <Message
           error
@@ -90,8 +88,6 @@ export const UserSignInForm = () => {
       <BotLink />
       
       <p dangerouslySetInnerHTML={{ __html: gfUser.descriptionSignIn.en }} className="user-signin-form__description" />
-
-      </Segment>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import _isEmpty from 'lodash/isEmpty';
 import classnames from 'classnames';
 
+import { Segment } from 'semantic-ui-react';
 import { Helmet } from 'components/Common/Helmet/Helmet';
 import { MenuMobile } from 'components/Menu/MenuMobile/MenuMobile';
 import { MenuFirstLevel } from 'components/Menu/MenuFirstLevel/MenuFirstLevel';
@@ -18,11 +19,10 @@ export const PageLayout = ({ children, className, meta = {}, header }) => {
       {!isMobile && <MenuFirstLevel />}
       {isMobile && <MenuMobile />}
 
-      {header && <h1>{header}</h1>}
-
-      <div className="page-layout__content">
+      <Segment className="page-layout__content">
+        {header && <h1>{header}</h1>}
         {children}
-      </div>
+      </Segment>
     </div>
   );
 };

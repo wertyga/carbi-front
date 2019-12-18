@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { withRouter } from 'next/router';
-import { Menu } from 'semantic-ui-react';
+import { Menu, Segment } from 'semantic-ui-react';
 
 import { gfMenu } from 'goldfish';
 
@@ -10,7 +10,10 @@ import './style.scss';
 
 export const MenuFirstLevelComponent = ({ router: { pathname } }) => {
   return (
-    <Menu className="menu-first-level" pointing secondary>
+    <Menu className="menu-first-level" stackable pointing>
+      <Menu.Item>
+        <img src="/static/favicon.png" />
+      </Menu.Item>
       {gfMenu.fistLevelMenu.map(({ name, href }) => (
         <Menu.Item key={href} active={pathname === href}>
           <Link href={href} >
@@ -19,7 +22,7 @@ export const MenuFirstLevelComponent = ({ router: { pathname } }) => {
         </Menu.Item>
       ))}
 
-      <MenuUser />
+      <MenuUser active={pathname === '/user/sign-in'} />
     </Menu>
   );
 };

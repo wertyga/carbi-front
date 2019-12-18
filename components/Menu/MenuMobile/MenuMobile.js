@@ -1,5 +1,6 @@
 import { useState, useRef } from 'react';
 import { useOnClickOutside } from 'hooks';
+import { Segment } from 'semantic-ui-react';
 import { ButterMenu } from 'components/UI/ButterMenu/ButterMenu';
 import { MenuMobileContent } from './MenuMobileContent/MenuMobileContent';
 import { MenuUser } from '../MenuUser/MenuUser';
@@ -17,13 +18,13 @@ export const MenuMobile = () => {
   useOnClickOutside(mainRef, closeMenu);
 
   return (
-    <div className="menu-mobile" ref={mainRef}>
+    <Segment className="menu-mobile" ref={mainRef}>
       <ButterMenu
         open={isOpen}
         onClick={handleOpenToggle}
         menu={<MenuMobileContent opened={isOpen} onItemClick={closeMenu}/>}
       />
       <MenuUser />
-    </div>
+    </Segment>
   );
 };

@@ -9,7 +9,6 @@
   transform: scale(0);
   .menu-mobile-content__item {
     font-weight: $font-weight-semibold;
-    color: $color-dark !important;
     &:not(:last-child) {
       margin-bottom: $space-4;
     }
