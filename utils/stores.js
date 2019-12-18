@@ -2,10 +2,22 @@
 import Cookies from 'universal-cookie';
 
 import { gfUser } from 'goldfish';
-import { getDevice, updateUser } from 'redux/actions';
+import { getDevice, getUser } from 'redux/actions';
 import { cookiesConstants } from 'redux/constants';
 
 const { SAVE_ALL_COOKIES } = cookiesConstants;
+
+const fetchUser = async (rootStore) => {
+  const token = rootStore.getState().cookiesStore[gfUser.userToken];
+  if (!token) return;
+
+  try {
+    const userData = await getUser(token);
+    rootStore.dispatch(userData);
+  } catch (e) {
+    // ...
+  }
+};
 
 const getDeviceType = async (req, rootStore) => {
   rootStore.dispatch(getDevice(req.headers))
@@ -19,12 +31,13 @@ export const collectCookies = (req, rootStore) => {
     type: SAVE_ALL_COOKIES,
     data: allCookies,
   });
-  rootStore.dispatch(updateUser({ token: allCookies[gfUser.userToken] }));
 };
 
 export const getInitialState = async (req, rootStore) => {
+  await collectCookies(req, rootStore);
+
   await Promise.all([
-      getDeviceType(req, rootStore),
-      collectCookies(req, rootStore),
+    getDeviceType(req, rootStore),
+    fetchUser(rootStore),
   ]);
 };

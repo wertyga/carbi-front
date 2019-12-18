@@ -14,7 +14,6 @@ export const cookiesStore = (state = {}, { type, data }) => {
 
   switch(type) {
     case SET_COOKIE:
-      console.log(data);
       const { name, value, opts = defaultOptions } = data;
       cookies.set(name, value, opts);
       return {

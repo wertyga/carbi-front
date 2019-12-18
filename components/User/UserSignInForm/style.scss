@@ -9,7 +9,6 @@
   }
 
   .icon.input .icon {
-    color: $color-light;
     font-size: $font-size-l;
     cursor: pointer;
   }
@@ -18,7 +17,6 @@
     display: flex;
     justify-content: flex-end;
     padding: $space-4 0;
-    color: $color-light;
     cursor: pointer;
     text-decoration: underline;
   }
@@ -26,7 +24,6 @@
   &__description {
     margin-top: $space-8;
     font-weight: $font-weight-medium;
-    color: $color-light;
   }
 
   &__show-pass {
@@ -34,6 +31,5 @@
     right: $space-2;
     bottom: $space-2;
     cursor: pointer;
-    color: $color-light;
   }
 }

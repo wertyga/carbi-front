@@ -1,22 +1,25 @@
-import { userConstants } from '../../constants/index';
+import { userConstants } from 'redux/constants';
 
-const { UPDATE_USER, CREATE_NEW_USER } = userConstants;
+const { UPDATE_USER, USER_SIGN_IN, SET_USER_ERROR } = userConstants;
 
 const initialState = {
-  username: '',
-  email: '',
+  error: '',
 };
 
 export const userStore = (state = initialState, { type, data }) => {
   switch(type) {
     case UPDATE_USER:
+    case USER_SIGN_IN:
       return {
         ...state,
         ...data,
       };
 
-    case CREATE_NEW_USER:
-      return data;
+    case SET_USER_ERROR:
+      return {
+        ...state,
+        error: data,
+      };
 
     default:
       return state;

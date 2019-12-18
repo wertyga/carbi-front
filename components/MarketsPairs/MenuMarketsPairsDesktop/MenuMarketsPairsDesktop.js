@@ -8,7 +8,7 @@ export const MenuMarketsPairsDesktop = ({
                                           markets, handleMarketCheck,
                                           chosenPair, pairs,
                                           handlePairCheck, handlePairsClose, onSubmit,
-                                          editableChartId, clearMenuData,
+                                          editableChartId, clearMenuData, chosenMarkets,
                                         }) => {
   return (
     <div className="markets-pairs-wrapper-desktop">
@@ -18,15 +18,17 @@ export const MenuMarketsPairsDesktop = ({
         header={gfMenu.markets.en}
       />
 
-      <PairsMenu
-        pairs={pairs}
-        chosenPair={chosenPair}
-        handleCheck={handlePairCheck}
-        onClose={handlePairsClose}
-        onSubmit={onSubmit}
-        editableChartId={editableChartId}
-        clearMenuData={clearMenuData}
-      />
+      {chosenMarkets.length > 1 &&
+        <PairsMenu
+          pairs={pairs}
+          chosenPair={chosenPair}
+          handleCheck={handlePairCheck}
+          onClose={handlePairsClose}
+          onSubmit={onSubmit}
+          editableChartId={editableChartId}
+          clearMenuData={clearMenuData}
+        />
+      }
 
     </div>
   );

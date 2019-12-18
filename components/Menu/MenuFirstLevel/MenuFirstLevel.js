@@ -10,7 +10,7 @@ import './style.scss';
 
 export const MenuFirstLevelComponent = ({ router: { pathname } }) => {
   return (
-    <Menu className="menu-first-level" pointing secondary inverted>
+    <Menu className="menu-first-level" pointing secondary>
       {gfMenu.fistLevelMenu.map(({ name, href }) => (
         <Menu.Item key={href} active={pathname === href}>
           <Link href={href} >

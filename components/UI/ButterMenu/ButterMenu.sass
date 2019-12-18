@@ -1,5 +1,7 @@
 @import 'constants.scss'
 
+$color: $color-dark
+
 .butter-menu
   position: absolute
   display: flex
@@ -8,7 +10,7 @@
   flex-direction: column
   &.sign
     .f, .s, .t
-      background-color: $color-light
+      background-color: $color
   .bars
     width: 30px
     height: 25px
@@ -26,7 +28,7 @@
       &.appear
         transform: translateX(0) rotate(0deg)
   .f, .s, .t
-    background-color: $color-light
+    background-color: $color
   .f
     transform: translateX(-1000%) rotate(0deg) translate(0, 0)
     transform-origin: 100% 0

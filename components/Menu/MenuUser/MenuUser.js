@@ -7,15 +7,15 @@ import storeSelector from './selectors';
 import './style.scss';
 
 export const MenuUser = () => {
-  const { userStore, cookiesStore } = useSelector(storeSelector);
+  const { username } = useSelector(storeSelector);
 
-  const isUserLogged = cookiesStore.token;
+  const isUserLogged = !!username;
   return (
     <Menu.Menu className="menu-user" position="right">
 
       <Menu.Item>
         <Link href="/user/sign-in">
-          <a className="menu-user__item">{gfMenu.signin.en}</a>
+          <a className="menu-user__item">{username || gfMenu.signin.en}</a>
         </Link>
 
         <Link href="/user/profile">

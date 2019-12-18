@@ -3,7 +3,7 @@
 .menu-first-level {
   z-index: 2;
   a {
-    color: $color-light;
+    //color: $color-light;
     &:not(:last-child) {
       margin-right: $space-4;
     }

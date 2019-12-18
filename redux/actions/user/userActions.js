@@ -1,62 +1,36 @@
 import { gfUser } from 'goldfish';
 
-import * as api from './api';
-import { userConstants, errorConstants , cookiesConstants} from '../../constants';
+import { userConstants } from 'redux/constants';
+import { setCookie } from 'redux/actions';
 
-const { UPDATE_USER, CREATE_NEW_USER } = userConstants;
-const { SET_ERROR } = errorConstants;
-const { SET_COOKIE } = cookiesConstants;
+import * as api from './api';
+
+const { UPDATE_USER, USER_SIGN_IN, SET_USER_ERROR } = userConstants;
 
 export const updateUser = data => ({ type: UPDATE_USER, data });
+export const setUser = data => ({ type: USER_SIGN_IN, data });
+export const setUserError = data => ({ type: SET_USER_ERROR, data });
+export const clearUserError = () => ({ type: SET_USER_ERROR, data: '' });
 
-export const clearUserError = () => ({
-  type: SET_ERROR,
-  data: {
-    userStoreError: undefined,
-  },
-});
+export const getUser = async (userToken) => {
+  try {
+    const { data: { data: { token, ...rest } } }= await api.fetchUser(userToken);
 
-// export const getUserPassword = async (username) => {
-//   try {
-//     await api.fetchUserPassword(username);
-//
-//     return {
-//       type: UPDATE_USER,
-//       data: {
-//         username,
-//       },
-//     };
-//   } catch (e) {
-//     throw e.message;
-//   }
-// };
+    return setUser(rest);
+  } catch (e) {
+    // ...
+  }
+};
 
 export const submitUser = async (dispatch, userData) => {
   try {
-    const { data: { data: { username, first_name, last_name, token } } } = await api.fetchUserData(userData);
+    const { data: { data: { token, ...rest } } } = await api.fetchUserData(userData);
 
-    dispatch({
-      type: CREATE_NEW_USER,
-      data: {
-        username: username,
-        first_name,
-        last_name,
-      },
-    });
-    dispatch({
-      type: SET_COOKIE,
-      data: {
-        name: gfUser.userToken,
-        value: token,
-      },
-    });
+    dispatch(setUser(rest));
+    dispatch(setCookie(gfUser.userToken, token));
   } catch (e) {
-    dispatch({
-      type: SET_ERROR,
-      data: {
-        userStoreError: getServerError(e),
-      },
-    });
+    console.log(e);
+    dispatch(setUserError(getServerError(e).message));
     throw e;
   }
 };

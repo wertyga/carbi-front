@@ -1,9 +1,7 @@
 @import "constants.scss";
-@import "semaintic.scss";
 
 * {
     box-sizing: border-box;
-    //color: $color-light;
 }
 
 html {
@@ -64,13 +62,13 @@ a {
 
 a, a:visited, a:focus, a:hover {
     text-decoration: none;
-    color: $color-light;
+    color: $color-dark;
     background-color: transparent; /* 1 */
     -webkit-text-decoration-skip: objects; /* 2 */
 }
 
 a:hover {
-  color: $color-light;
+    color: $color-dark;
 }
 
 abbr[title] {
@@ -266,8 +264,4 @@ p {
     justify-content: center;
     text-align: center;
     color: $color-red;
-}
-
-.ui.disabled.checkbox label {
-    color: $color-grey-2 !important;
 }

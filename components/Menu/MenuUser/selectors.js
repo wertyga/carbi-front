@@ -1,1 +1,3 @@
-export default ({ userStore, cookiesStore }) => ({ userStore, cookiesStore });
+export default ({ userStore: { username } }) => ({
+  username,
+});

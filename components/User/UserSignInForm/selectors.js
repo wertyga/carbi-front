@@ -1,1 +1,1 @@
-export default ({ userStore, errorStore: { userStoreError } }) => ({ userStore, userStoreError });
+export default ({ userStore }) => ({ userStore });

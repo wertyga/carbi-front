@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-export const fetchUserPassword = (login) => (
+export const fetchUser = (token) => (
   axios({
-    method: 'post',
-    url: `${process.env.API}/send-password`,
-    data: {
-      login,
+    method: 'get',
+    url: `${process.env.API}/user/get-user`,
+    params: {
+      token,
     },
   })
 );

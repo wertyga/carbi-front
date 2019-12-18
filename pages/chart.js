@@ -27,7 +27,7 @@ const meta = {
   title: gfCharts.pageTitle.en,
 };
 
-const ChartPage = ({ marketsData }) => {
+const ChartPage = () => {
   const dispatch = useDispatch();
   const { globalError, token, prices } = useSelector(storeSelector);
 
@@ -35,7 +35,17 @@ const ChartPage = ({ marketsData }) => {
 
   const getInitialData = async () => {
     if (!token) return;
-    const charts = await getUserCharts(dispatch, prices, token);
+    const [charts, marketsData] = await Promise.all([
+      getUserCharts(token),
+      getMarketsWithPairs(token),
+    ]);
+
+    dispatch(marketsData);
+
+    return {
+      charts,
+      marketsData,
+    };
   };
 
   const getPrices = async (charts) => {
@@ -46,10 +56,10 @@ const ChartPage = ({ marketsData }) => {
   }
 
   useEffect(() => {
-    // getInitialData();
+    getInitialData();
     // const charts = getSavedCharts();
     // dispatch(saveCharts(charts));
-    dispatch(marketsData);
+    // dispatch(marketsData);
     // getPrices(charts);
   }, []);
 
@@ -63,14 +73,6 @@ const ChartPage = ({ marketsData }) => {
       <ChartPageItem />
     </PageLayout>
   );
-};
-
-ChartPage.getInitialProps = async ({ req: { headers: { cookie } } }) => {
-  const token = new UCookie(cookie).get(gfUser.userToken);
-
-  const marketsData = await getMarketsWithPairs(token);
-
-  return { marketsData };
 };
 
 export default ChartPage;

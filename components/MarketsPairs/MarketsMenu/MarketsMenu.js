@@ -1,14 +1,15 @@
-import { Menu } from 'semantic-ui-react';
+import { Menu, Segment } from 'semantic-ui-react';
 import { MenuItem } from '../../Menu/MenuItem/MenuItem';
 
 import './style.scss';
 
 export const MarketsMenu = ({ list = [], onItemChange, header, icon, emptyText }) => {
   return (
+  <Segment className="main-menu-markets">
     <Menu
-      className="main-menu-markets"
       vertical
-      inverted
+      secondary
+      pointing
     >
       <Menu.Item className="main-menu-markets__header">
         <Menu.Header>{header}</Menu.Header>
@@ -28,5 +29,6 @@ export const MarketsMenu = ({ list = [], onItemChange, header, icon, emptyText }
       ))}
 
     </Menu>
+  </Segment>
   );
 };

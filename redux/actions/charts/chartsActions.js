@@ -74,7 +74,7 @@ export const deleteChartAction = (chartId) => {
   };
 };
 
-export const getUserCharts = async (dispatch, prices, token) => {
+export const getUserCharts = async (token) => {
   try {
     const { data } = await api.fetchCharts(token);
     const modifiedData = data.map(item => ({ chartId: item.id, ...item }));
@@ -86,9 +86,9 @@ export const getUserCharts = async (dispatch, prices, token) => {
     // });
   } catch (e) {
     console.log(e);
-    dispatch({
-      type: SET_ERROR,
-      userStoreError: e.message,
-    });
+    // dispatch({
+    //   type: SET_ERROR,
+    //   userStoreError: e.message,
+    // });
   }
 };
